@@ -1,0 +1,599 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+:root {
+  /* Modern Midnight Ember Theme - Professional & Attractive */
+  --radius: 0.875rem;
+  
+  /* Core Background Colors */
+  --background: #0f172a;  /* Deep slate background */
+  --foreground: #f8fafc;  /* Warm white text */
+  
+  /* Surface Colors */
+  --card: #1e293b;  /* Midnight card background */
+  --card-foreground: #f8fafc;
+  --popover: #1e293b;
+  --popover-foreground: #f8fafc;
+  
+  /* Brand Colors - Modern Orange & Coral */
+  --primary: #f97316;  /* Ember orange */
+  --primary-foreground: #ffffff;
+  --secondary: #ef4444;  /* Coral red */
+  --secondary-foreground: #ffffff;
+  
+  /* UI Element Colors */
+  --muted: #334155;  /* Cool slate */
+  --muted-foreground: #94a3b8;  /* Cool gray */
+  --accent: #fbbf24;  /* Golden amber */
+  --accent-foreground: #0f172a;
+  --destructive: #ef4444;
+  --border: #334155;
+  --input: #1e293b;
+  --ring: #f97316;
+  
+  /* Premium Gradients - Warm & Modern */
+  --gradient-primary: linear-gradient(135deg, #f97316 0%, #ef4444 100%);
+  --gradient-secondary: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  --gradient-accent: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  --gradient-ember: linear-gradient(135deg, #f97316 0%, #ea580c 50%, #dc2626 100%);
+  --gradient-cosmic: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+  
+  /* Glow Effects - Warm Tones */
+  --glow-primary: 0 0 40px rgba(249, 115, 22, 0.3);
+  --glow-secondary: 0 0 40px rgba(239, 68, 68, 0.3);
+  --glow-accent: 0 0 40px rgba(251, 191, 36, 0.4);
+  --glow-ember: 0 0 40px rgba(249, 115, 22, 0.4);
+  
+  /* Chart Colors - Professional Palette */
+  --chart-1: #f97316;  /* Ember orange */
+  --chart-2: #ef4444;  /* Coral red */
+  --chart-3: #fbbf24;  /* Golden amber */
+  --chart-4: #10b981;  /* Success green */
+  --chart-5: #f59e0b;  /* Warning orange */
+  
+  /* Sidebar - Modern & Clean */
+  --sidebar: #1e293b;
+  --sidebar-foreground: #f8fafc;
+  --sidebar-primary: #f97316;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: rgba(249, 115, 22, 0.1);
+  --sidebar-accent-foreground: #f8fafc;
+  --sidebar-border: #334155;
+  --sidebar-ring: #f97316;
+}
+
+.dark {
+  /* Same as :root - consistent theme across light/dark */
+  --background: #0f172a;
+  --foreground: #f8fafc;
+  --card: #1e293b;
+  --card-foreground: #f8fafc;
+  --popover: #1e293b;
+  --popover-foreground: #f8fafc;
+  --primary: #f97316;
+  --primary-foreground: #ffffff;
+  --secondary: #ef4444;
+  --secondary-foreground: #ffffff;
+  --muted: #334155;
+  --muted-foreground: #94a3b8;
+  --accent: #fbbf24;
+  --accent-foreground: #0f172a;
+  --destructive: #ef4444;
+  --border: #334155;
+  --input: #1e293b;
+  --ring: #f97316;
+  
+  /* Chart colors */
+  --chart-1: #f97316;
+  --chart-2: #ef4444;
+  --chart-3: #fbbf24;
+  --chart-4: #10b981;
+  --chart-5: #f59e0b;
+  
+  /* Sidebar */
+  --sidebar: #1e293b;
+  --sidebar-foreground: #f8fafc;
+  --sidebar-primary: #f97316;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: rgba(249, 115, 22, 0.1);
+  --sidebar-accent-foreground: #f8fafc;
+  --sidebar-border: #334155;
+  --sidebar-ring: #f97316;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Modern Glassmorphism - Midnight Ember Theme */
+.glass {
+  background: rgba(30, 41, 59, 0.4);
+  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(51, 65, 85, 0.5);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(248, 250, 252, 0.1);
+}
+
+.glass-dark {
+  background: rgba(15, 23, 42, 0.8);
+  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(51, 65, 85, 0.3);
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(248, 250, 252, 0.05);
+}
+
+/* Premium glass effect with stronger visibility */
+.glass-premium {
+  background: rgba(30, 41, 59, 0.6);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(249, 115, 22, 0.15);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(248, 250, 252, 0.1),
+    0 0 0 1px rgba(249, 115, 22, 0.05);
+  position: relative;
+}
+
+.glass-premium::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, 
+    rgba(249, 115, 22, 0.05) 0%,
+    transparent 50%,
+    rgba(239, 68, 68, 0.03) 100%);
+  pointer-events: none;
+}
+
+/* Premium animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(249, 115, 22, 0.3),
+                0 0 40px rgba(249, 115, 22, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(249, 115, 22, 0.5),
+                0 0 60px rgba(239, 68, 68, 0.2);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Smooth transitions */
+.transition-premium {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Modern Gradient Text - Ember Theme */
+.gradient-text {
+  background: linear-gradient(135deg, #f97316 0%, #ef4444 50%, #fbbf24 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 30px rgba(249, 115, 22, 0.3);
+}
+
+/* Premium hover effects */
+.hover-lift {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+}
+
+/* Premium Button */
+.btn-premium {
+  background: linear-gradient(135deg, #f97316 0%, #ef4444 100%);
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    0 4px 15px rgba(249, 115, 22, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.btn-premium:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 8px 25px rgba(249, 115, 22, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.btn-premium:active {
+  transform: translateY(0);
+}
+
+/* Modern Cosmic Background - Midnight Ember */
+.cosmic-bg {
+  position: relative;
+  background: #0f172a;
+  overflow: visible;
+}
+
+.cosmic-bg::before {
+  content: '';
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(249, 115, 22, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(239, 68, 68, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 60%, rgba(251, 191, 36, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 60% 40%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+  animation: gradient-shift 25s ease infinite;
+  background-size: 200% 200%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(30, 41, 59, 0.3);
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #f97316 0%, #ef4444 100%);
+  border-radius: 8px;
+  border: 2px solid #0f172a;
+  box-shadow: 0 0 10px rgba(249, 115, 22, 0.3);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #ea580c 0%, #dc2626 100%);
+  box-shadow: 0 0 15px rgba(249, 115, 22, 0.5);
+}
+
+/* LiquidEther container base styles */
+.liquid-ether-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+  pointer-events: none; /* Let UI capture interactions while still showing background */
+}
+
+/* Updated Authentication Design - Midnight Ember */
+/* Main headline now uses inline styles for better control */
+
+/* Removed old broken signin-component styles - now using proper grid layout */
+
+/* Removed old signin-header and p2-logo styles - now using inline styles in components */
+
+/* Removed old landing-container and content-wrapper styles - now using proper responsive grid */
+
+.feature-box {
+  background: 
+    linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%),
+    rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 28px;
+  margin-bottom: 24px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 215, 0, 0.3) 50%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.feature-box:hover {
+  background: 
+    linear-gradient(135deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.55) 100%),
+    rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 215, 0, 0.2);
+  transform: translateY(-3px);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(255, 215, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.feature-box:hover::before {
+  opacity: 1;
+}
+
+.subheading { 
+  color: rgba(255, 255, 255, 0.92); 
+  font-size: 1.25rem; 
+  line-height: 1.6; 
+  margin-bottom: 2.5rem;
+  font-weight: 400;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.feature-title { 
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 1.2rem; 
+  font-weight: 600; 
+  margin-bottom: 16px;
+  text-shadow: 0 2px 8px rgba(255, 215, 0, 0.2);
+}
+
+.feature-description { 
+  color: rgba(255, 255, 255, 0.85); 
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* Enhanced list styling for better readability */
+.feature-description ul {
+  margin-top: 8px;
+  padding-left: 4px;
+}
+
+.feature-description li {
+  margin-bottom: 8px;
+  padding-left: 8px;
+  color: rgba(255, 255, 255, 0.88);
+  position: relative;
+}
+
+.feature-description li::marker {
+  color: rgba(255, 215, 0, 0.7);
+  font-size: 1.1em;
+}
+
+/* Custom bullet styling for better visual hierarchy */
+.feature-description li:before {
+  content: '•';
+  color: rgba(6, 182, 212, 0.8);
+  font-size: 1.2em;
+  position: absolute;
+  left: -12px;
+  top: 0;
+}
+
+.feature-description .list-disc li:before {
+  display: none; /* Hide custom bullets when using Tailwind's list-disc */
+}
+
+/* Badge and status indicator enhancements */
+.status-badge {
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: #10b981;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.1);
+  transition: all 0.3s ease;
+}
+
+.status-badge:hover {
+  background: rgba(16, 185, 129, 0.2);
+  border-color: rgba(16, 185, 129, 0.4);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+}
+
+.continue-button {
+  background: linear-gradient(135deg, #06b6d4 0%, #0ea5e9 50%, #10b981 100%);
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  color: white; 
+  font-weight: 600; 
+  padding: 16px 28px; 
+  border-radius: 12px; 
+  width: 100%; 
+  margin-top: 20px; 
+  font-size: 0.95rem;
+  box-shadow: 
+    0 8px 20px rgba(6, 182, 212, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.continue-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%);
+  transition: left 0.5s ease;
+}
+
+.continue-button:hover {
+  background: linear-gradient(135deg, #0891b2 0%, #0284c7 50%, #059669 100%);
+  border-color: rgba(6, 182, 212, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 12px 28px rgba(6, 182, 212, 0.3),
+    0 0 40px rgba(16, 185, 129, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.continue-button:hover::before {
+  left: 100%;
+}
+
+.continue-button:active {
+  transform: translateY(0px);
+  box-shadow: 
+    0 4px 12px rgba(6, 182, 212, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Old responsive styles removed - now using Tailwind responsive classes directly in components */
+
+/* Premium Glassmorphism - Midnight Ember */
+.glass-premium {
+  background: rgba(30, 41, 59, 0.6);
+  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(51, 65, 85, 0.4);
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(249, 115, 22, 0.1),
+    inset 0 1px 0 rgba(248, 250, 252, 0.1);
+}
+
+/* Premium Button Styles - Ember Theme */
+.btn-premium {
+  background: linear-gradient(135deg, #f97316 0%, #ef4444 100%);
+  border: 1px solid rgba(249, 115, 22, 0.3);
+  box-shadow:
+    0 8px 24px rgba(249, 115, 22, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  color: white;
+  font-weight: 600;
+}
+
+.btn-premium:hover {
+  background: linear-gradient(135deg, #ea580c 0%, #dc2626 100%);
+  box-shadow:
+    0 12px 32px rgba(249, 115, 22, 0.4),
+    0 0 40px rgba(239, 68, 68, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  transform: translateY(-3px);
+}
+
+/* Gold accent elements */
+.gold-accent {
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gold-border {
+  border: 1px solid rgba(251, 191, 36, 0.3);
+  box-shadow: 0 0 20px rgba(251, 191, 36, 0.1);
+}
+
+/* Premium input styles */
+.input-premium {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(251, 191, 36, 0.2);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.input-premium:focus {
+  border-color: rgba(251, 191, 36, 0.5);
+  box-shadow:
+    0 0 0 3px rgba(251, 191, 36, 0.1),
+    0 4px 16px rgba(251, 191, 36, 0.1);
+}
+
+/* Floating animation for premium elements */
+@keyframes float-premium {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
+.float-premium {
+  animation: float-premium 6s ease-in-out infinite;
+}
+
+/* Premium card hover effects */
+.card-premium {
+  background: rgba(255, 255, 255, 0.02);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(251, 191, 36, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-premium:hover {
+  border-color: rgba(251, 191, 36, 0.3);
+  box-shadow:
+    0 12px 32px rgba(251, 191, 36, 0.15),
+    0 0 40px rgba(16, 185, 129, 0.1);
+  transform: translateY(-4px);
+}
+
+/* Animation delay classes */
+.animate-delay-100 { animation-delay: 0.1s; }
+.animate-delay-200 { animation-delay: 0.2s; }
+.animate-delay-300 { animation-delay: 0.3s; }
+.animate-delay-400 { animation-delay: 0.4s; }
+.animate-delay-500 { animation-delay: 0.5s; }
+
+/* Progress bar width utility classes */
+.w-progress-0 { width: 0%; }
+.w-progress-10 { width: 10%; }
+.w-progress-20 { width: 20%; }
+.w-progress-30 { width: 30%; }
+.w-progress-40 { width: 40%; }
+.w-progress-50 { width: 50%; }
+.w-progress-60 { width: 60%; }
+.w-progress-70 { width: 70%; }
+.w-progress-80 { width: 80%; }
+.w-progress-90 { width: 90%; }
+.w-progress-100 { width: 100%; }

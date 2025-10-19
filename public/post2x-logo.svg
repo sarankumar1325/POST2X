@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="128" viewBox="0 0 512 128" role="img" aria-labelledby="title desc">
+  <title>Post2x Logo</title>
+  <desc>Logotype for Post2x with folded mark</desc>
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#22D3EE"/>
+      <stop offset="50%" stop-color="#06B6D4"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <!-- Mark -->
+  <g transform="translate(12,10) scale(0.8)" filter="url(#glow)">
+    <polygon points="0,0 96,16 52,60" fill="url(#grad)"/>
+    <polygon points="52,60 96,16 112,104" fill="#67E8F9" opacity="0.35"/>
+    <polygon points="0,0 52,60 12,120" fill="#0891B2" opacity="0.35"/>
+  </g>
+  <!-- Wordmark -->
+  <g transform="translate(140,90)" fill="url(#grad)" style="font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui; font-weight: 700; font-size: 64px; letter-spacing: 0.5px;">
+    <text x="0" y="0">post</text>
+    <text x="210" y="0" fill="#22D3EE">2</text>
+    <text x="255" y="0">x</text>
+  </g>
+</svg>
