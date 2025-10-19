@@ -1,8 +1,8 @@
-# Post2x - AI-Powered Social Media Content Analyzer
+#  POST2X- AI-Powered Social Media Content Analyzer
 
 Post2x is a powerful web application that uses AI to analyze social media content for virality, engagement potential, and target audience insights. Built with Next.js 15, Clerk authentication, Neon database, and Lyzr AI.
 
-## 🚀 Features
+##  Features
 
 ### Core Features
 - **Content Analysis**: AI-powered analysis of social media posts with virality scoring
@@ -20,7 +20,7 @@ Post2x is a powerful web application that uses AI to analyze social media conten
 - **Responsive Design**: Mobile-first design with dark theme
 - **Real-time Updates**: Dynamic content loading and updates
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 - **Frontend**: Next.js 15, React 19, TypeScript
 - **Styling**: Tailwind CSS 4, shadcn/ui components
@@ -30,7 +30,7 @@ Post2x is a powerful web application that uses AI to analyze social media conten
 - **Charts**: Recharts for data visualization
 - **Icons**: Lucide React
 
-## 📋 Prerequisites
+##  Prerequisites
 
 Before you begin, ensure you have:
 
@@ -40,7 +40,7 @@ Before you begin, ensure you have:
 - A Neon database ([sign up here](https://neon.tech))
 - A Lyzr AI account ([sign up here](https://lyzr.ai))
 
-## 🔧 Installation & Setup
+## Installation & Setup
 
 ### 1. Clone the Repository
 
@@ -109,7 +109,7 @@ npm run dev
 
 Visit `http://localhost:3000` to see your application!
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 src/
@@ -142,7 +142,7 @@ src/
     └── index.ts               # TypeScript types
 ```
 
-## 🎯 Usage
+##  Usage
 
 ### Content Analysis
 1. Navigate to the "Analyze" page
@@ -157,7 +157,7 @@ src/
 3. Use "Get Inspired By" to analyze similar content
 4. Build your content strategy with AI assistance
 
-## 🚀 Deployment
+##  Deployment
 
 ### Deploy to Vercel
 
@@ -183,14 +183,14 @@ The database includes three main tables:
 - **posts**: Stores content analysis results
 - **daily_ideas**: Stores AI-generated post ideas
 
-## 🛡️ Security
+##  Security
 
 - Authentication handled by Clerk
 - API routes protected with authentication
 - Environment variables for sensitive data
 - Input validation and sanitization
 
-## 🎨 Design
+##  Design
 
 - Dark theme optimized for content creation
 - Mobile-first responsive design
@@ -199,4 +199,4 @@ The database includes three main tables:
 
 ---
 
-Built with ❤️ using Next.js, Clerk, Neon, and Lyzr AI.
+Built with ❤️ by Sarankumar S  using Next.js, Clerk, Neon, and Lyzr AI.
