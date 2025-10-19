@@ -7,11 +7,11 @@
 
 const https = require('https');
 
-// Configuration
+// Configuration - Read from environment variables
 const API_CONFIG = {
   baseUrl: 'https://agent-prod.studio.lyzr.ai/v3/inference/chat/',
-  apiKey: 'sk-default-0vXAp7xlIsAZ7Ocktmowe7DicKqNQGc0',
-  userId: 'akash.c@goml.io',
+  apiKey: process.env.LYZR_API_KEY || '',
+  userId: process.env.LYZR_USER_ID || 'test-user',
   agents: {
     analyzer: '68bc42b8cc9c7b45bbcc0fcb',
     ranker: '68bc43a723454f14b14b1c3b',
@@ -234,7 +234,6 @@ async function runAllTests() {
   log(colors.cyan, '🚀 Post2x Lyzr Agent API Tests');
   log(colors.yellow, '=' .repeat(60));
   log(colors.magenta, `API Endpoint: ${API_CONFIG.baseUrl}`);
-  log(colors.magenta, `API Key: ${API_CONFIG.apiKey.substring(0, 20)}...`);
   log(colors.yellow, '=' .repeat(60));
 
   const startTime = Date.now();
@@ -295,8 +294,6 @@ if (args.includes('--analyzer') || args.includes('-a')) {
   console.log('  node test-agents-standalone.js --generator  # Test content generator');
   console.log('  node test-agents-standalone.js --help       # Show this help');
   log(colors.yellow, '\nConfiguration:');
-  console.log('  API Key: sk-default-0vXAp7xlIsAZ7Ocktmowe7DicKqNQGc0');
-  console.log('  User ID: akash.c@goml.io');
   console.log('  Base URL: https://agent-prod.studio.lyzr.ai/v3/inference/chat/');
 } else {
   runAllTests().catch(console.error);

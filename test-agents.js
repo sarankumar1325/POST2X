@@ -7,11 +7,11 @@
 
 const https = require('https');
 
-// Configuration - Update these with your actual values
+// Configuration - Read from environment variables
 const API_CONFIG = {
   baseUrl: 'https://agent-prod.studio.lyzr.ai/v3/inference/chat/',
-  apiKey: 'sk-default-0vXAp7xlIsAZ7Ocktmowe7DicKqNQGc0',
-  userId: 'akash.c@goml.io',
+  apiKey: process.env.LYZR_API_KEY || '',
+  userId: process.env.LYZR_USER_ID || 'test-user',
   agents: {
     analyzer: '68bc42b8cc9c7b45bbcc0fcb',
     ranker: '68bc43a723454f14b14b1c3b',
