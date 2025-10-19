@@ -71,6 +71,8 @@ DATABASE_URL=postgresql://username:password@host/database_name?sslmode=require
 
 # Lyzr AI - Get from your Lyzr dashboard
 LYZR_API_KEY=your_actual_lyzr_api_key
+LYZR_USER_ID=your_email@example.com
+LYZR_OFFLINE=false
 
 # Base URL
 NEXT_PUBLIC_APP_URL=http://localhost:3000
@@ -174,6 +176,8 @@ Make sure to add all environment variables in your deployment platform:
 - `CLERK_WEBHOOK_SECRET`
 - `DATABASE_URL`
 - `LYZR_API_KEY`
+- `LYZR_USER_ID`
+- `LYZR_OFFLINE` (optional, set to `true` for offline/mock mode)
 - `NEXT_PUBLIC_APP_URL` (your production URL)
 
 ##  Database Schema
