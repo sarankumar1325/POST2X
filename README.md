@@ -176,7 +176,7 @@ Make sure to add all environment variables in your deployment platform:
 - `LYZR_API_KEY`
 - `NEXT_PUBLIC_APP_URL` (your production URL)
 
-## 📊 Database Schema
+##  Database Schema
 
 The database includes three main tables:
 - **users**: Stores user data synced with Clerk
@@ -189,13 +189,6 @@ The database includes three main tables:
 - API routes protected with authentication
 - Environment variables for sensitive data
 - Input validation and sanitization
-
-##  Design
-
-- Dark theme optimized for content creation
-- Mobile-first responsive design
-- Intuitive navigation and user experience
-- Professional dashboard interface
 
 ---
 
