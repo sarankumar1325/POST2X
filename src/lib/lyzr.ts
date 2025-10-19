@@ -11,8 +11,13 @@ const AGENT_IDS = {
 };
 
 const LYZR_INFERENCE_API = 'https://agent-prod.studio.lyzr.ai/v3/inference/chat/';
-const LYZR_API_KEY = 'sk-default-0vXAp7xlIsAZ7Ocktmowe7DicKqNQGc0';
-const USER_ID = 'akash.c@goml.io';
+const LYZR_API_KEY = process.env.LYZR_API_KEY || '';
+const USER_ID = process.env.LYZR_USER_ID || 'anonymous';
+
+// Runtime validation for missing API key
+if (process.env.NODE_ENV !== 'test' && !process.env.LYZR_API_KEY) {
+  console.warn('LYZR_API_KEY not set; Lyzr calls will fail');
+}
 
 function lyzrKeyLooksConfigured(key?: string) {
   // Treat placeholders or demo keys as not configured
