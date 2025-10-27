@@ -1,0 +1,194 @@
+================================================================================
+SENSITIVE DATA LOCATIONS IN POST2X REPOSITORY
+================================================================================
+Generated: 2025-10-19
+Repository: sarankumar1325/POST2X
+
+This file lists all locations where sensitive data (API keys, secrets, 
+credentials, email addresses) were found in the repository.
+
+================================================================================
+1. LYZR API KEY: sk-default-0vXAp7xlIsAZ7Ocktmowe7DicKqNQGc0
+================================================================================
+Risk Level: CRITICAL
+Type: API Key for Lyzr AI Services
+
+Location 1:
+  File: src/lib/lyzr.ts
+  Line: 14
+  Code: const LYZR_API_KEY = 'sk-default-0vXAp7xlIsAZ7Ocktmowe7DicKqNQGc0';
+
+Location 2:
+  File: test-agents.js
+  Line: 13
+  Code: apiKey: 'sk-default-0vXAp7xlIsAZ7Ocktmowe7DicKqNQGc0',
+
+Location 3:
+  File: test-agents-standalone.js
+  Line: 13
+  Code: apiKey: 'sk-default-0vXAp7xlIsAZ7Ocktmowe7DicKqNQGc0',
+
+Location 4:
+  File: test-agents-standalone.js
+  Line: 298
+  Code: console.log('  API Key: sk-default-0vXAp7xlIsAZ7Ocktmowe7DicKqNQGc0');
+
+Total Occurrences: 4 instances in 3 files
+
+================================================================================
+2. EMAIL ADDRESS: akash.c@goml.io
+================================================================================
+Risk Level: MEDIUM
+Type: Personal Email Address / User ID
+
+Location 1:
+  File: src/lib/lyzr.ts
+  Line: 15
+  Code: const USER_ID = 'akash.c@goml.io';
+
+Location 2:
+  File: test-agents.js
+  Line: 14
+  Code: userId: 'akash.c@goml.io',
+
+Location 3:
+  File: test-agents-standalone.js
+  Line: 14
+  Code: userId: 'akash.c@goml.io',
+
+Location 4:
+  File: test-agents-standalone.js
+  Line: 299
+  Code: console.log('  User ID: akash.c@goml.io');
+
+Total Occurrences: 4 instances in 3 files
+
+================================================================================
+3. AGENT IDS (Internal System Identifiers)
+================================================================================
+Risk Level: LOW
+Type: Lyzr Agent IDs
+
+Agent ID: 68bc42b8cc9c7b45bbcc0fcb (CONTENT_ANALYZER)
+  File: src/lib/lyzr.ts
+  Line: 8
+  File: test-agents.js
+  Line: 16
+  File: test-agents-standalone.js
+  Line: 16
+
+Agent ID: 68bc43a723454f14b14b1c3b (CONTENT_RANKER / CONTENT_GEN)
+  File: src/lib/lyzr.ts
+  Lines: 9, 10
+  File: test-agents.js
+  Lines: 17, 18
+  File: test-agents-standalone.js
+  Lines: 17, 18
+
+Total Occurrences: Multiple instances in 3 files
+
+================================================================================
+4. EXAMPLE/PLACEHOLDER SECRETS (Documentation Only)
+================================================================================
+Risk Level: INFO (Not actual secrets)
+Type: Example values for documentation
+
+Location 1:
+  File: README.md
+  Lines: 64-76
+  Content: Example environment variables with placeholder values
+  Examples:
+    - NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_your_actual_key
+    - CLERK_SECRET_KEY=sk_test_your_actual_key
+    - CLERK_WEBHOOK_SECRET=whsec_your_webhook_secret
+    - DATABASE_URL=postgresql://username:password@host/database_name?sslmode=require
+    - LYZR_API_KEY=your_actual_lyzr_api_key
+
+Location 2:
+  File: src/app/setup/page.tsx
+  Lines: 26-33
+  Content: Setup page showing example environment variables
+  Examples:
+    - CLERK_SECRET_KEY=sk_test_your_actual_secret_key
+    - CLERK_WEBHOOK_SECRET=whsec_your_webhook_secret
+    - DATABASE_URL=postgresql://username:password@host/database_name?sslmode=require
+    - LYZR_API_KEY=your_lyzr_api_key
+
+Status: ACCEPTABLE (These are placeholder values, not real credentials)
+
+================================================================================
+SUMMARY OF FINDINGS
+================================================================================
+
+Critical Issues (Immediate Action Required):
+  - 1 Lyzr API Key exposed (4 occurrences)
+  
+Medium Priority Issues:
+  - 1 Email address exposed (4 occurrences)
+  
+Low Priority Issues:
+  - 3 Agent IDs exposed (multiple occurrences)
+
+Informational:
+  - Example credentials in documentation (acceptable)
+
+================================================================================
+FILES CONTAINING SENSITIVE DATA
+================================================================================
+
+1. src/lib/lyzr.ts
+   - Lyzr API Key (Line 14)
+   - Email Address (Line 15)
+   - Agent IDs (Lines 8-10)
+
+2. test-agents.js
+   - Lyzr API Key (Line 13)
+   - Email Address (Line 14)
+   - Agent IDs (Lines 16-18)
+
+3. test-agents-standalone.js
+   - Lyzr API Key (Lines 13, 298)
+   - Email Address (Lines 14, 299)
+   - Agent IDs (Lines 16-18)
+
+4. README.md
+   - Example credentials (Lines 64-76) [Documentation only]
+
+5. src/app/setup/page.tsx
+   - Example credentials (Lines 26-33) [Documentation only]
+
+================================================================================
+GREP COMMANDS TO VERIFY
+================================================================================
+
+To verify these findings, run the following commands:
+
+# Search for the Lyzr API key
+grep -r "sk-default-0vXAp7xlIsAZ7Ocktmowe7DicKqNQGc0" --exclude-dir=node_modules --exclude-dir=.git .
+
+# Search for the email address
+grep -r "akash.c@goml.io" --exclude-dir=node_modules --exclude-dir=.git .
+
+# Search for all potential API keys (generic pattern)
+grep -r -E "(sk-|pk-)[a-zA-Z0-9-]{20,}" --exclude-dir=node_modules --exclude-dir=.git .
+
+# Search for all email addresses
+grep -r -E "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" --exclude-dir=node_modules --exclude-dir=.git . | grep -v "example.com"
+
+================================================================================
+RECOMMENDED IMMEDIATE ACTIONS
+================================================================================
+
+1. REVOKE the exposed Lyzr API key immediately
+2. Generate a new Lyzr API key
+3. Update code to use environment variables (LYZR_API_KEY)
+4. Remove hardcoded email address
+5. Test application with environment variables
+6. Consider cleaning Git history to remove exposed credentials
+7. Set up automated secret scanning in CI/CD
+
+See SECURITY_AUDIT_REPORT.md for detailed remediation steps.
+
+================================================================================
+END OF REPORT
+================================================================================
